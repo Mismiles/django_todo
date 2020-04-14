@@ -27,7 +27,7 @@ SECRET_KEY = 'k9v9yv%hd&#r_xcjgtpa-g8138h8*@v#0_03x%um3ffob4t1ll'
 DEBUG = True
 
 ALLOWED_HOSTS = ['8000-a213c930-a559-4432-89bf-5ce95d72d557.ws-eu01.gitpod.io',
-                 'new-djando-todo.herokuapp.com']
+'new-djando-todo.herokuapp.com']
 
 
 # Application definition
