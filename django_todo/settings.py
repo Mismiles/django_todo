@@ -29,10 +29,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'k9v9yv%hd&#r_xcjgtpa-g8138h8*@v#0_03x%um3ffob4t1ll'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-if development:
-    DEBUG = True
+DEBUG = development
 
-ALLOWED_HOSTS = [os.environ.get('GITPod_HOSTNAME'),
+ALLOWED_HOSTS = [('8000-a213c930-a559-4432-89bf-5ce95d72d557.ws-eu01.gitpod.io'),
                 os.environ.get('HOSTNAME')]
 
 # '8000-a213c930-a559-4432-89bf-5ce95d72d557.ws-eu01.gitpod.io',
@@ -88,14 +87,15 @@ WSGI_APPLICATION = 'django_todo.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
-
-DATABASES = {'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))}
+if development: 
+    DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
+else:
+    DATABASES = {'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))}
     
     # "postgres://fudfcqngipyjuv:a931d20cacbd84d4f114ba8ea3d7b4758cd1008604cb384751c14e2ab261ce3a@ec2-54-75-244-161.eu-west-1.compute.amazonaws.com:5432/d8or3u3qa2e0q2"
 
